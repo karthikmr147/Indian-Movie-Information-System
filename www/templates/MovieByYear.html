@@ -1,0 +1,165 @@
+<!-- tables -->
+<link rel="stylesheet" type="text/css" href="list-css/table-style.css" />
+<link rel="stylesheet" type="text/css" href="list-css/basictable.css" />
+<script type="text/javascript" src="list-js/jquery.basictable.min.js"></script>
+ <script type="text/javascript">
+    $(document).ready(function() {
+      $('#table').basictable();
+
+      $('#table-breakpoint').basictable({
+        breakpoint: 768
+      });
+	   $('#table-breakpoint1').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint2').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint3').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint4').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint5').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint6').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint7').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint8').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint9').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint10').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint11').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint12').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint13').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint14').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint15').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint16').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint17').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint18').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint19').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint20').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint21').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint22').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint23').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint24').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint25').basictable({
+        breakpoint: 768
+      });
+	  $('#table-breakpoint26').basictable({
+        breakpoint: 768
+      });
+    });
+  </script>
+<!-- //tables -->
+
+
+
+<div class="general_social_icons">
+	<nav class="social">
+		<ul>
+			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
+		</ul>
+  </nav>
+</div>
+<!-- faq-banner -->
+	<div class="faq">
+		<h4 class="latest-text w3_faq_latest_text w3_latest_text">Last 5 years of bollywood!</h4>
+			<div class="container">
+				<div class="agileits-news-top">
+					<ol class="breadcrumb">
+					  <li><a ui-sref="Home">Home</a></li>
+					  <li class="active">List</li>
+					</ol>
+				</div>
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs" ng-controller="movieByYears">
+						<ul id="myTab" class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Select Year >></a></li>
+							<li role="presentation" ><a href="" ng-click=searchyear(2013) role="tab" id="a-tab" data-toggle="tab" aria-controls="a">2013</a></li>
+							<li role="presentation"><a href="" ng-click=searchyear(2014) role="tab" id="b-tab" data-toggle="tab" aria-controls="b">2014</a></li>
+							<li role="presentation"><a href="" ng-click=searchyear(2015) role="tab" id="c-tab" data-toggle="tab" aria-controls="c">2015</a></li>
+							<li role="presentation"><a href="" ng-click=searchyear(2016) role="tab" id="d-tab" data-toggle="tab" aria-controls="d">2016</a></li>
+							<li role="presentation"><a href="" ng-init=searchyear(2017) ng-click=searchyear(2017) role="tab" id="e-tab" data-toggle="tab" aria-controls="e">2017</a></li>
+						</ul>
+						<div id="myTabContent" class="tab-content">
+							<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+								<div class="agile-news-table">
+									<div class="w3ls-news-result">
+										<h4>Top Search Results : <span> {{getMovieByYear.length}}</span></h4>
+										}
+									</div>
+									<table id="table-breakpoint">
+										<thead>
+										  <tr>
+											<th>No.</th>
+											<th>Movie Name</th>
+											<th>Year</th>
+											<th>Status</th>
+											<th>Country</th>
+											<th>Genre</th>
+											<th>Rating</th>
+										  </tr>
+										</thead>
+										<tbody ng-repeat="movie in getMovieByYear">
+										  <tr>
+											<td>1</td>
+											<td class="w3-list-img"><a href=""><img src="{{movie.PosterPath}}" alt="" /> <span>{{movie.Title}}</span></a></td>
+											<td>{{movie.ReleaseYear}}</td>
+											<td>HD</td>
+											<td class="w3-list-info"><a href="">{{movie.Country}}</a></td>
+											<td class="w3-list-info"><a href="">{{movie.Genre}}</a></td>
+											<td>{{movie.Rating}}</td>
+										  </tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							
+							
+						</div>
+				</div>
+			</div>
+	</div>
+<!-- //faq-banner -->
