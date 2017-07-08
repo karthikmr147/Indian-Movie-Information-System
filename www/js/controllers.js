@@ -51,8 +51,8 @@ function ($scope, $stateParams) {
 
 .controller('movie',['$scope','$state','$stateParams','MovieFactory', function($scope,$state,$stateParams,MovieFactory){
     $scope.Singlemovie = $stateParams.movie;
-    console.log($scope.Singlemovie);
-     MovieFactory.getActorsbyMoive($scope.Singlemovie).then(function(data){
+    //console.log($scope.Singlemovie[0].Id);
+     MovieFactory.getActorsbyMoive($scope.Singlemovie[0].Id).then(function(data){
             $scope.Actors = data;
             console.log($scope.Actors);
 

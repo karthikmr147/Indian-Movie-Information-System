@@ -18,13 +18,20 @@
 				<div class="col-sm-8 single-left">
 					<div class="song">
 						<div class="song-info">
-							
+		
 							<h3>{{Singlemovie[0].Title}}</h3>	
-							{{Singlemovie[0].TrailerLink}}
+							
 						</div>
 						<div class="video-grid-single-page-agileits">
-							<iframe width="750" height="350" ng-src="{{Singlemovie[0].TrailerLink}}" frameborder="0" allowfullscreen></iframe>
+							<iframe width="750" height="350" src="{{Singlemovie[0].TrailerLink}}" frameborder="0" allowfullscreen></iframe>
 						</div>
+					</div>
+					<div class="song-grid-right">
+					  <h4> Actors :	<h5 ng-repeat="actor in Actors" style="float:left">  {{actor.Name}},  </h5> </h4>
+					</div>
+					<br>
+					<div class="song-grid-right">
+					  <h4> Description : <h5> {{Singlemovie[0].Description}} </h5> </h4>
 					</div>
 					<div class="song-grid-right">
 						<div class="share">
@@ -69,60 +76,8 @@
 					</div>
 					<div class="clearfix"> </div>
 
-					<div class="all-comments">
-						<div class="all-comments-info">
-							<a href="#">Comments</a>
-							<div class="agile-info-wthree-box">
-								<form>
-									<input type="text" placeholder="Name" required="">			           					   
-									<input type="text" placeholder="Email" required="">
-									<input type="text" placeholder="Phone" required="">
-									<textarea placeholder="Message" required=""></textarea>
-									<input type="submit" value="SEND">
-									<div class="clearfix"> </div>
-								</form>
-							</div>
-						</div>
-						<div class="media-grids">
-							<div class="media">
-								<h5>TOM BROWN</h5>
-								<div class="media-left">
-									<a href="#">
-										<img src="images/user.jpg" title="One movies" alt=" " />
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
-								</div>
-							</div>
-							<div class="media">
-								<h5>MARK JOHNSON</h5>
-								<div class="media-left">
-									<a href="#">
-									<img src="images/user.jpg" title="One movies" alt=" " />
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
-								</div>
-							</div>
-							<div class="media">
-								<h5>STEVEN SMITH</h5>
-								<div class="media-left">
-									<a href="#">
-									<img src="images/user.jpg" title="One movies" alt=" " />
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
-								</div>
-							</div>
-
-						</div>
-					</div>
+			
+					
 				</div>
 				<div class="col-md-4 single-right" ng-controller="moviesUpcoming">
 					<h3>Up Next</h3>
@@ -148,12 +103,73 @@
 
 				
 				<div class="clearfix"> </div>
+
+
 			</div>
 				<!-- //movie-browse-agile -->
 		
 							 
 				</div>
+
 				<!-- //w3l-latest-movies-grids -->
+
+				<div class="container">
+				<div class="panel-group w3l_panel_group_faq" id="accordion" role="tablist" aria-multiselectable="true">
+				  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingOne">
+					  <h4 class="panel-title asd">
+						<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Update the Detials - Crowd Source 
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+					  <div class="all-comments-info">
+						
+							<div class="agile-info-wthree-box">
+								<form>
+									<input type="text" placeholder="Title" required="">			           					   
+									<input type="text" placeholder="Director" required="">
+									<input type="text" placeholder="Actors" required="">
+									<textarea placeholder="Description" required=""></textarea>
+									<input type="submit" value="SEND">
+									<div class="clearfix"> </div>
+								</form>
+							</div>
+						</div>
+					</div>
+				  </div>
+
+				  <div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingTwo">
+					  <h4 class="panel-title asd">
+						<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Wite a Review 
+						</a>
+					  </h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					  <div class="all-comments">
+						<div class="all-comments-info">
+							<a href="#">Comments</a>
+							<div class="agile-info-wthree-box">
+								<form>
+									<input type="text" placeholder="Name" required="">			           					   
+									<input type="text" placeholder="Email" required="">
+									<input type="text" placeholder="Phone" required="">
+									<textarea placeholder="Message" required=""></textarea>
+									<input type="submit" value="SEND">
+									<div class="clearfix"> </div>
+								</form>
+							</div>
+						</div>
+		
+					</div>
+					</div>
+				  </div>
+
+			</div>
+		</div>
 			</div>	
 		</div>
 	<!-- //w3l-medile-movies-grids -->
