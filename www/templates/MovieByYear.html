@@ -144,7 +144,7 @@
 										<tbody ng-repeat="movie in getMovieByYear">
 										  <tr>
 											<td>1</td>
-											<td class="w3-list-img"><a href=""><img src="{{movie.PosterPath}}" alt="" /> <span>{{movie.Title}}</span></a></td>
+											<td class="w3-list-img"><a ui-sref="Single({movie: movie.Id})"><img src="{{movie.PosterPath}}" alt="" /> <span>{{movie.Title}}</span></a></td>
 											<td>{{movie.ReleaseYear}}</td>
 											<td>HD</td>
 											<td class="w3-list-info"><a href="">{{movie.Country}}</a></td>

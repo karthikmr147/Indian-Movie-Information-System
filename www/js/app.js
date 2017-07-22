@@ -61,6 +61,10 @@ angular.module('app', ['ionic','ui.router', 'app.controllers','app.services'])
 
   })
 
+  .state('CrowdSource',{
+      url: '/CrowdSource',
+      templateUrl:'templates/CrowdSource.html'
+    })
   .state('FAQ',{
     url: '/FAQ',
     templateUrl: 'templates/FAQ.html'
@@ -75,6 +79,7 @@ angular.module('app', ['ionic','ui.router', 'app.controllers','app.services'])
 
 
 })
+
 
 /*
   This directive is used to disable the "drag to open" functionality of the Side-Menu

@@ -25,6 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="lib/ionic/js/ionic.bundle.js"></script>
 <script src="lib/ionic/js/angular-ui/angular-ui-router.min.js"
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-sanitize.js"></script>
 <script src="cordova.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers.js"></script>
@@ -85,10 +86,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- header -->
   <!-- Ionic's root component and where the app will load -->
   <ion-app></ion-app>
-
   <!-- The polyfills js is generated during the build process -->
   <!--script src="build/polyfills.js"></script -->
-
   <!-- The bundle js is generated during the build process -->
   <!--script src="build/main.js"></script -->
   <div class="header">
@@ -97,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a ui-sref="Home"><h1>IMIS<span>Live Bollywood</span></h1></a>
       </div>
       <div class="w3_search">
-        <div ng-controller="movieSearch">
+        <div ng-controller="movieSearch" ng-if= "model.refresh = true">
           <input type="text" name="Search" placeholder="Search Movie Name" required="" ng-model="data.search" >
           <input type="submit" value="Go" ng-click="doSearch()">
         </div>
@@ -105,7 +104,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="w3l_sign_in_register">
         <ul>
           
-
           <li><a ui-sref="#" data-toggle="modal" data-target="#myModal">Login</a></li>
         </ul>
       </div>
@@ -184,61 +182,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <nav>
             <ul class="nav navbar-nav">
-              <li class="active"><a ui-sref="Home">Home</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Genres <b class="caret"></b></a>
-                <ul class="dropdown-menu multi-column columns-3">
-                  <li>
-                  <div class="col-sm-4">
-                    <ul class="multi-column-dropdown">
-                      <li><a href="genres.html">Action</a></li>
-                      <li><a href="genres.html">Biography</a></li>
-                      <li><a href="genres.html">Crime</a></li>
-                      <li><a href="genres.html">Family</a></li>
-                      <li><a href="horror.html">Horror</a></li>
-                      <li><a href="genres.html">Romance</a></li>
-                      <li><a href="genres.html">Sports</a></li>
-                      <li><a href="genres.html">War</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-4">
-                    <ul class="multi-column-dropdown">
-                      <li><a href="genres.html">Adventure</a></li>
-                      <li><a href="comedy.html">Comedy</a></li>
-                      <li><a href="genres.html">Documentary</a></li>
-                      <li><a href="genres.html">Fantasy</a></li>
-                      <li><a href="genres.html">Thriller</a></li>
-                    </ul>
-                  </div>
-                  <div class="col-sm-4">
-                    <ul class="multi-column-dropdown">
-                      <li><a href="genres.html">Animation</a></li>
-                      <li><a href="genres.html">Costume</a></li>
-                      <li><a href="genres.html">Drama</a></li>
-                      <li><a href="genres.html">History</a></li>
-                      <li><a href="genres.html">Musical</a></li>
-                      <li><a href="genres.html">Psychological</a></li>
-                    </ul>
-                  </div>
-                  <div class="clearfix"></div>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Top Songs <b class="caret"></b></a>
-                <ul class="dropdown-menu multi-column columns-1" style= "display: none;">
-                  <li>
-                    <div class="col-sm-4">
-                      <ul class="multi-column-dropdown">
-                        <li><a href="genres.html">Latest Songs</a></li>
-                        <li><a href="genres.html">Songs by keyword</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+              <li><a ui-sref="Home">Home</a></li>
               
-              <li><a ui-sref="Home">Crowd Source</a></li>
+              
+              <li><a ui-sref="CrowdSource">Crowd Source</a></li>
               
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Analytics <b class="caret"></b></a>
@@ -258,6 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </li>
               <li><a ui-sref="About">About IMIS</a></li>
               <li><a ui-sref="MovieByYear">Movies by Year</a></li>
+              <li><a ui-sref="ContactUs">Contact Us</a></li>
             </ul>
           </nav>
         </div>
@@ -279,7 +227,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div ui-view>
     </div>
-
    
   
  

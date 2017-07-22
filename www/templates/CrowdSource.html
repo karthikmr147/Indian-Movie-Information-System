@@ -1,0 +1,31 @@
+<div class="panel panel-default" style="width: 60%;margin-left: 8%;" ng-controller ="CrowdSourceController">
+  <div class="panel-heading" role="tab" id="headingTwo">
+    <h4 class="panel-title asd">
+
+      <span>Crowd Source</span>
+
+    </h4>
+    <div ng-if="successMsg">
+      <div class="alert alert-success" role="alert">
+        <a href="#" class="alert-link">Thank you.</a>
+      </div>
+    </div>
+  </div>
+  <div id="" class="panel-collapse" role="tabpanel" aria-labelledby="headingTwo">
+    <div class="all-comments">
+      <div class="all-comments-info">
+        <div class="agile-info-wthree-box">
+          <form>
+            <input type="text" placeholder="Title" required="" ng-model="cs.title">
+            <input type="text" placeholder="Director" required="" ng-model="cs.director">
+            <input type="text" placeholder="Actors" required="" ng-model="cs.actors">
+            <textarea placeholder="Description" required="" ng-model="cs.description"></textarea>
+            <input type="submit" value="SEND" ng-click="crowdSource()">
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

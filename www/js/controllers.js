@@ -1,8 +1,8 @@
-angular.module('app.controllers',[])
+angular.module('app.controllers',['ngSanitize'])
 
   
 .controller('iMISCtrl',function RatingController() {
-	console.log('displaying directive');
+    console.log('displaying directive');
     this.rating1 = 5;
     })
    
@@ -14,60 +14,80 @@ function ($scope, $stateParams) {
 
 }])
    
-.controller('loginCtrl',function ($scope, $ionicModal, $timeout, ngFB) {
-   $scope.fbLogin = function () {
-    ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
-        function (response) {
-            if (response.status === 'connected') {
-                console.log('Facebook login succeeded');
-                $scope.closeLogin();
-            } else {
-                alert('Facebook login failed');
-            }
-        });
-};})
-   
-.controller('LoginCtrl', function($scope, LoginService, $state) {
-    $scope.data = {};
- 
-    $scope.login = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('Home');
-            $modal.hide();
-        }).error(function(data) {
-            console.log("Error");
-            alert("Error Logn");
-        });
-    }
-})
 
-.controller('signupCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+   
+
+  .controller('LoginCtrl', function ($scope, LoginService, $state) {
+    $scope.data = {};
+    $scope.loginError = false;
+    $scope.login = function () {
+      /* console.log($scope.data.username);
+       console.log($scope.data.password);*/
+      LoginService.loginUser($scope.data.username, $scope.data.password).then(function (data) {
+        console.log(data);
+        if(data =="Success"){
+          $scope.loginError = false;
+          $state.go('Index');
+        } else {
+          $scope.loginError = true;
+        }
+      })
+    };
+  })
+
+  .controller('signupCtrl',  // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
 // You can include any angular dependencies as parameters for this function
 // TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+    function ($scope, $stateParams, LoginService) {
 
+      $scope.signUp = function () {
+        // console.log($scope.data.username);
+        LoginService.signUp($scope.data.username, $scope.data.password, $scope.data.email, $scope.data.phone).then(function (response) {
+          console.log(response);
+        })
+      };
 
-}])
+    })
 
-.controller('movie',['$scope','$state','$stateParams','MovieFactory', function($scope,$state,$stateParams,MovieFactory){
-    $scope.Singlemovie = $stateParams.movie;
-    //console.log($scope.Singlemovie[0].Id);
-     MovieFactory.getActorsbyMoive($scope.Singlemovie[0].Id).then(function(data){
+.controller('movie',['$scope','$state','$stateParams','MovieFactory','ReviewService','$sce', function($scope,$state,$stateParams,MovieFactory,ReviewService,$sce){
+        
+        MovieFactory.getMovieById($stateParams.movie).then(function(data){
+            $scope.Singlemovie = data;
+            $scope.videoLink = $sce.trustAsHtml($scope.Singlemovie.TrailerEmbedCode)
+
+            console.log($scope.Singlemovie.Id);
+           
+        }); 
+        MovieFactory.getActorsbyMoive($stateParams.movie).then(function(data){
             $scope.Actors = data;
             console.log($scope.Actors);
+        });   
 
-        })
+        ReviewService.getReviews($stateParams.movie).then(function (data) {
+      console.log(data);
+      $scope.reviews =  data;
+      console.log("review in controller "+$scope.reviews);
+          });   
+
+
+          $scope.submitReview = function (movieId) {
+  ///    alert("herer");
+      console.log(movieId);
+      console.log($scope.review.phone);
+      ReviewService.submitReview($scope.review.name, $scope.review.email, $scope.review.phone, $scope.review.message, movieId).then(function (response) {
+        console.log(response);
+      })}  
    
 }])
 
 .controller('moviesTop',['$scope','MovieFactory',function ($scope,MovieFactory) {
     $scope.test = "yashas";
-	//	var vm= this;
-		MovieFactory.getTopMovies().then(function(data){
-			$scope.Topmovies = data;
-		console.log($scope.Topmovies);
+    //  var vm= this;
+        MovieFactory.getTopMovies().then(function(data){
+            $scope.Topmovies = data;
+        console.log($scope.Topmovies);
 
-		})}])
+        })}])
 
 .controller('moviesTopFemale',['$scope','MovieFactory',function ($scope,MovieFactory) {
     $scope.test1 = "yashas";
@@ -121,9 +141,9 @@ function ($scope, $stateParams) {
     $scope.doSearch = function(){
         //console.log($scope.data.search);
         MovieFactory.SearchMovie($scope.data.search).then(function(data){
-            $scope.movie = data;
+            $scope.movie = data[0];
             console.log($scope.movie);
-            $state.go('Single',{movie : $scope.movie})
+            $state.go('Single',{movie : $scope.movie.Id});
             
 
     })}}])
@@ -141,7 +161,23 @@ function ($scope, $stateParams) {
 
     })}}])
 
+.controller('CrowdSourceController', function ($scope, $window, CrowdSourceService) {
+   // console.log("ssd");
+          $scope.successMsg = false;
+          $scope.crowdSource = function () {
+            console.log($scope.cs.director);
+            CrowdSourceService.addData($scope.cs.title, $scope.cs.director, $scope.cs.actors, $scope.cs.description).then(function (data) {
+              console.log(data);
+              if(data == "OK"){
+                alert("Thank you");
+                $window.location.reload();
+          //  $scope.successMsg = true;
+          }
+        })
+      };
+
+    })
+
   
 
 
- 

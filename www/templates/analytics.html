@@ -4,12 +4,12 @@
     <div class="container" ng-controller="moviesTopGrossed" >
 
               <div class="col-md-2 w3l-movie-gride-agile" ng-repeat="movie in TopGrossedMovies">
-                <a ui-sref="Single" class="hvr-shutter-out-horizontal"><img src="{{movie.PosterPath}}" title="album-name" class="img-responsive" alt=" " />
+                <a ui-sref="Single({movie: movie.Id})" class="hvr-shutter-out-horizontal"><img src="{{movie.PosterPath}}" title="album-name" class="img-responsive" alt=" " />
                   <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                 </a>
                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                   <div class="w3l-movie-text">
-                    <h6><a ui-sref="Single">{{movie.Title}}</a></h6>              
+                    <h6><a ui-sref="Single({movie: movie.Id})">{{movie.Title}}</a></h6>              
                   </div>
                   <div class="mid-2 agile_mid_2_home">
                     <p>{{movie.ReleaseYear}}</p>
@@ -40,12 +40,12 @@
     <div class="container" ng-controller="moviesTop" >
 
               <div class="col-md-2 w3l-movie-gride-agile" ng-repeat="movies in Topmovies">
-                <a ui-sref="Single" class="hvr-shutter-out-horizontal"><img src="{{movies.PosterPath}}" title="album-name" class="img-responsive" alt=" " />
+                <a ui-sref="Single({movie: movie.Id})" class="hvr-shutter-out-horizontal"><img src="{{movies.PosterPath}}" title="album-name" class="img-responsive" alt=" " />
                   <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                 </a>
                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                   <div class="w3l-movie-text">
-                    <h6><a ui-sref="Single">{{movies.Title}}</a></h6>              
+                    <h6><a ui-sref="Single({movie: movie.Id})">{{movies.Title}}</a></h6>              
                   </div>
                   <div class="mid-2 agile_mid_2_home">
                     <p>{{movies.ReleaseYear}}</p>
@@ -75,12 +75,12 @@
           <div class="container" ng-controller="moviesTopFemale" >
 
               <div class="col-md-2 w3l-movie-gride-agile" ng-repeat="movies in TopFemale">
-                <a ui-sref="Single" class="hvr-shutter-out-horizontal"><img src="{{movies.ProfilePath}}" title="album-name" class="img-responsive" alt=" " />
+                <a ui-sref="#" class="hvr-shutter-out-horizontal"><img src="{{movies.ProfilePath}}" title="album-name" class="img-responsive" alt=" " />
                   <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                 </a>
                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                   <div class="w3l-movie-text">
-                    <h6><a ui-sref="Single">{{movies.Name}}</a></h6>              
+                    <h6><a ui-sref="Single({movie: movie.Id})">{{movies.Name}}</a></h6>              
                   </div>
                   <div class="mid-2 agile_mid_2_home">
                     <p>{{movies.DateOfBirth}}</p>

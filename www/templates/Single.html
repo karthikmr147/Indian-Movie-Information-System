@@ -19,11 +19,11 @@
 					<div class="song">
 						<div class="song-info">
 		
-							<h3>{{Singlemovie[0].Title}}</h3>	
+							<h3>{{Singlemovie.Title}}</h3>	
 							
 						</div>
-						<div class="video-grid-single-page-agileits">
-							<iframe width="750" height="350" src="{{Singlemovie[0].TrailerLink}}" frameborder="0" allowfullscreen></iframe>
+						<div class="video-grid-single-page-agileits" ng-model="videoLink" ng-bind-html="videoLink">
+							
 						</div>
 					</div>
 					<div class="song-grid-right">
@@ -31,7 +31,7 @@
 					</div>
 					<br>
 					<div class="song-grid-right">
-					  <h4> Description : <h5> {{Singlemovie[0].Description}} </h5> </h4>
+					  <h4> <p>Description : <h5> {{Singlemovie.Description}} </h5> </p> </h4>
 					</div>
 					<div class="song-grid-right">
 						<div class="share">
@@ -76,6 +76,67 @@
 					</div>
 					<div class="clearfix"> </div>
 
+
+					<div class="container">
+            <div class="panel-group w3l_panel_group_faq" style="width: 60%;"id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title asd">
+                    <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Update the Detials - Crowd Source
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="all-comments-info">
+
+                    <div class="agile-info-wthree-box">
+                      <form>
+                        <input type="text" placeholder="Title" required="">
+                        <input type="text" placeholder="Director" required="">
+                        <input type="text" placeholder="Actors" required="">
+                        <textarea placeholder="Description" required=""></textarea>
+                        <input type="submit" value="SEND">
+                        <div class="clearfix"> </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title asd">
+                    <a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Wite a Review
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="all-comments">
+                    <div class="all-comments-info">
+                      <a href="#">Comments</a>
+                      <div class="agile-info-wthree-box">
+                        <form>
+                          <input type="text" placeholder="Name" required="" ng-model="review.name">
+                          <input type="text" placeholder="Email" required="" ng-model="review.email">
+                          <input type="text" placeholder="Phone" required="" ng-model="review.phone">
+                          <textarea placeholder="Message" required="" ng-model="review.message"></textarea>
+                          <input type="submit" value="SEND" ng-click="submitReview(Singlemovie.Id)">
+                          <div class="clearfix"> </div>
+                        </form>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
 			
 					
 				</div>
@@ -84,10 +145,10 @@
 					<div class="single-grid-right" ng-repeat="movie in Upcomingmovies | limitTo:6">
 						<div class="single-right-grids">
 							<div class="col-md-4 single-right-grid-left">
-								<a href="single.html"><img src="{{movie.PosterPath}}" alt="" /></a>
+								<a ui-sref="Single({movie: movie.Id})"><img src="{{movie.PosterPath}}" alt="" /></a>
 							</div>
 							<div class="col-md-8 single-right-grid-right">
-								<a href="single.html" class="title"> {{movie.Title}}</a>
+								<a ui-sref="Single({movie: movie.Id})" class="title"> {{movie.Title}}</a>
 								<p class="author"><a href="#" class="author">{{movie.ReleaseDate}}</a></p>
 								<p class="views">{{movie.CensorRating}}</p>
 							</div>
@@ -113,63 +174,5 @@
 
 				<!-- //w3l-latest-movies-grids -->
 
-				<div class="container">
-				<div class="panel-group w3l_panel_group_faq" id="accordion" role="tablist" aria-multiselectable="true">
-				  <div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne">
-					  <h4 class="panel-title asd">
-						<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Update the Detials - Crowd Source 
-						</a>
-					  </h4>
-					</div>
-					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-					  <div class="all-comments-info">
-						
-							<div class="agile-info-wthree-box">
-								<form>
-									<input type="text" placeholder="Title" required="">			           					   
-									<input type="text" placeholder="Director" required="">
-									<input type="text" placeholder="Actors" required="">
-									<textarea placeholder="Description" required=""></textarea>
-									<input type="submit" value="SEND">
-									<div class="clearfix"> </div>
-								</form>
-							</div>
-						</div>
-					</div>
-				  </div>
-
-				  <div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingTwo">
-					  <h4 class="panel-title asd">
-						<a class="pa_italic collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><i class="glyphicon glyphicon-minus" aria-hidden="true"></i>Wite a Review 
-						</a>
-					  </h4>
-					</div>
-					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-					  <div class="all-comments">
-						<div class="all-comments-info">
-							<a href="#">Comments</a>
-							<div class="agile-info-wthree-box">
-								<form>
-									<input type="text" placeholder="Name" required="">			           					   
-									<input type="text" placeholder="Email" required="">
-									<input type="text" placeholder="Phone" required="">
-									<textarea placeholder="Message" required=""></textarea>
-									<input type="submit" value="SEND">
-									<div class="clearfix"> </div>
-								</form>
-							</div>
-						</div>
-		
-					</div>
-					</div>
-				  </div>
-
-			</div>
-		</div>
-			</div>	
-		</div>
+				
 	<!-- //w3l-medile-movies-grids -->
