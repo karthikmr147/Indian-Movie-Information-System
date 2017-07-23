@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <a ui-sref="Home"><h1>IMIS<span>Live Bollywood</span></h1></a>
       </div>
       <div class="w3_search">
-        <div ng-controller="movieSearch" ng-if= "model.refresh = true">
+        <div ng-controller="movieSearch">
           <input type="text" name="Search" placeholder="Search Movie Name" required="" ng-model="data.search" >
           <input type="submit" value="Go" ng-click="doSearch()">
         </div>
@@ -205,6 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </li>
               <li><a ui-sref="About">About IMIS</a></li>
               <li><a ui-sref="MovieByYear">Movies by Year</a></li>
+              <li><a ui-sref="DeveloperAPI">Developer API</a></li>
               <li><a ui-sref="ContactUs">Contact Us</a></li>
             </ul>
           </nav>
@@ -226,7 +227,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 
 <div ui-view>
-    </div>
+</div>
    
   
  

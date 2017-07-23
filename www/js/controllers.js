@@ -161,18 +161,50 @@ function ($scope, $stateParams) {
 
     })}}])
 
+.controller('DeveloperAPI',['$scope','DeveloperAPI',function($scope,DeveloperAPI){
+  $scope.movie={};
+     var myApp;
+        myApp = myApp || (function () {
+        var pleaseWaitDiv = $('<div class="modal-header"><h1>Processing...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div>');
+         return {
+         showPleaseWait: function() {
+            pleaseWaitDiv.modal();
+        },
+        hidePleaseWait: function () {
+            pleaseWaitDiv.modal('hide');
+        },
+
+    };
+})();
+   $scope.successMsg = false;
+  $scope.searchmovieapi = function(){
+    console.log($scope.movie.name);
+    myApp.showPleaseWait();
+    DeveloperAPI.SearchAPI($scope.movie.name).then(function(data){
+      $scope.moviejson = data;
+      myApp.hidePleaseWait();
+       $scope.successMsg = true;
+
+  })}}])
+
 .controller('CrowdSourceController', function ($scope, $window, CrowdSourceService) {
    // console.log("ssd");
           $scope.successMsg = false;
+       
           $scope.crowdSource = function () {
+            
+
             console.log($scope.cs.director);
             CrowdSourceService.addData($scope.cs.title, $scope.cs.director, $scope.cs.actors, $scope.cs.description).then(function (data) {
               console.log(data);
-              if(data == "OK"){
-                alert("Thank you");
-                $window.location.reload();
-          //  $scope.successMsg = true;
-          }
+             if(data == "OK"){
+               
+               $scope.successMsg = true;
+
+               $("#crowdform").load(location.href + " #croedform");
+              // $window.location.reload();
+           
+        }
         })
       };
 

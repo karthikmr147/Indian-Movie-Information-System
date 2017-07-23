@@ -1,7 +1,7 @@
 angular.module('app.services',[])
 
 .factory('MovieFactory', function($http){
-	var token = 'DEC60C4E3D22E172AD7AED43F6CBE323';
+	var token = '41C6083FB687888CF1E0BBAA9F99B95B';
 	var TopMovies = 'https://api.cinemalytics.com/v1/analytics/TopMovies/?auth_token='+token;
 	var UpcomingMovies = 'http://api.cinemalytics.in/v2/movie/upcoming?auth_token='+token;
 	var TopGrossedMovies = 'http://api.cinemalytics.in/v2/analytics/TopGrossedMovies/?auth_token='+token;
@@ -110,7 +110,7 @@ angular.module('app.services',[])
         console.log("here2 " + pw);
 
         //return  $http.get("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/login?userId=" + name + "&pw=" + pw)
-        return $http.get("http://localhost:3000/user/login?username=" + name + "&pw=" + pw)
+        return $http.get("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/login?username=" + name + "&pw=" + pw)
           .then(function (response) {
             console.log(response);
             var data = response.data;
@@ -127,7 +127,7 @@ angular.module('app.services',[])
 
 
         //return  $http.post("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/signUp", data)
-        return $http.post("http://localhost:3000/user/signUp", data)
+        return $http.post("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/signUp", data)
           .then(function (response) {
             console.log(response);
             var data = response.data;
@@ -149,7 +149,7 @@ angular.module('app.services',[])
         var data = {username: username, movieId: movieId, review: review};
 
         //return $http.post("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/postReview", data)
-        return $http.post("http://localhost:3000/user/postReview", data)
+        return $http.post("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/postReview", data)
           .then(function (response) {
             var data = response.data[0].reviews;
             return data;
@@ -170,6 +170,18 @@ angular.module('app.services',[])
     }
   })
 
+.service('DeveloperAPI', function($q,$http){
+  return{
+    SearchAPI: function(param){
+      console.log("Seach name" +param);
+      return $http.get("http://indianmovieserver.us-west-2.elasticbeanstalk.com/Service/cinema?id="+param).then(function(response){
+        var data = response.data;
+        return data;
+      })
+    }
+  }
+})
+
 
 .service('CrowdSourceService', function ($q, $http) {
   return {
@@ -181,7 +193,7 @@ angular.module('app.services',[])
       var data = {title: title, director: director, actors: actors, description: description};
 
       //return $http.post("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/postReview", data)
-     return $http.post("http://localhost:3000/user/addCrowdSource", data)
+     return $http.post("http://indianmovieserver.us-west-2.elasticbeanstalk.com/user/addCrowdSource", data)
         .then(function (response) {
           var data = response.data;
           return data;

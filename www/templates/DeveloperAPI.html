@@ -1,0 +1,32 @@
+
+<div class="general" ng-controller="DeveloperAPI">
+<h4 class="latest-text w3_latest_text">Search Movies By Title</h4>
+<div class="container"> 
+<div class="panel panel-warning" >
+  <div class="panel-body">
+    <form class="navbar-form navbar-right" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Movie Name" ng-model="movie.name">
+  </div>
+  <button type="submit" class="btn btn-warning" ng-click="searchmovieapi()">Submit</button>
+  
+</form>
+  </div>
+</div>
+<div class="panel panel-success" ng-if="successMsg" >
+     <div class="panel-body" ng-repeat="movie in moviejson"> <pre>    {{movie}}  </pre></div>
+         
+</div>
+
+</div>
+</div>
+
+
+
+    
+
+
+
+
+ 
+          

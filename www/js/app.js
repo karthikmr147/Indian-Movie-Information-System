@@ -39,7 +39,7 @@ angular.module('app', ['ionic','ui.router', 'app.controllers','app.services'])
   })
   .state('Home',{
     url: '/Home',
-    templateUrl:'Home.html'
+    templateUrl:'/templates/Home.html'
   })
   .state('Single',{
     url: '/Single',
@@ -65,6 +65,10 @@ angular.module('app', ['ionic','ui.router', 'app.controllers','app.services'])
       url: '/CrowdSource',
       templateUrl:'templates/CrowdSource.html'
     })
+  .state('DeveloperAPI',{
+      url: '/DeveloperAPI',
+      templateUrl:'templates/DeveloperAPI.html'
+  })
   .state('FAQ',{
     url: '/FAQ',
     templateUrl: 'templates/FAQ.html'
