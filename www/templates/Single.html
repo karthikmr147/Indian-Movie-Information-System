@@ -31,7 +31,7 @@
 					</div>
 					<br>
 					<div class="song-grid-right">
-					  <h4> <p>Description : <h5> {{Singlemovie.Description}} </h5> </p> </h4>
+					  <h4> <p> <h4>Description : <h5> {{Singlemovie.Description}} </h5> </p> </h4>
 					</div>
 					<div class="song-grid-right">
 						<div class="share">
@@ -76,8 +76,29 @@
 					</div>
 					<div class="clearfix"> </div>
 
+					<div class="all-comments" ng-if="reviewstatus">
+						
+						<div class="media-grids">
+							<div class="media" ng-repeat="review in reviews">
+								<h5>{{review.username}}</h5>
+								<div class="media-left">
+									<a href="#">
+										<img src="images/user.jpg" title="One movies" alt=" " />
+									</a>
+								</div>
+								<div class="media-body">
+									<p>{{review.comment}}</p>
+									<span>View all posts by :<a href="#"> Admin </a></span>
+								</div>
+							</div>
+							
+							
 
-					<div class="container">
+						</div>
+					</div>
+
+
+		<div class="all-comments">
             <div class="panel-group w3l_panel_group_faq" style="width: 60%;"id="accordion" role="tablist" aria-multiselectable="true">
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
@@ -170,7 +191,7 @@
 				<!-- //movie-browse-agile -->
 		
 							 
-				</div>
+	</div>
 
 				<!-- //w3l-latest-movies-grids -->
 

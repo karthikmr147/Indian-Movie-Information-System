@@ -50,7 +50,7 @@ function ($scope, $stateParams) {
     })
 
 .controller('movie',['$scope','$state','$stateParams','MovieFactory','ReviewService','$sce', function($scope,$state,$stateParams,MovieFactory,ReviewService,$sce){
-        
+        $scope.reviewstatus = false ;
         MovieFactory.getMovieById($stateParams.movie).then(function(data){
             $scope.Singlemovie = data;
             $scope.videoLink = $sce.trustAsHtml($scope.Singlemovie.TrailerEmbedCode)
@@ -66,6 +66,7 @@ function ($scope, $stateParams) {
         ReviewService.getReviews($stateParams.movie).then(function (data) {
       console.log(data);
       $scope.reviews =  data;
+      $scope.reviewstatus=true;
       console.log("review in controller "+$scope.reviews);
           });   
 
