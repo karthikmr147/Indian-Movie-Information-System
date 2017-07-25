@@ -41,7 +41,7 @@ function ($scope, $stateParams) {
     function ($scope, $stateParams, LoginService) {
 
       $scope.signUp = function () {
-        // console.log($scope.data.username);
+        console.log($scope.data.username);
         LoginService.signUp($scope.data.username, $scope.data.password, $scope.data.email, $scope.data.phone).then(function (response) {
           console.log(response);
         })
@@ -129,9 +129,9 @@ function ($scope, $stateParams) {
 
       //  var vm= this;
         MovieFactory.getReleasedThisWeek().then(function(data){
-            $scope.TopGrossedMovies = data;
+            $scope.moviesReleasedThisWeek = data;
          
-        console.log($scope.TopGrossedMovies);
+        console.log($scope.moviesReleasedThisWeek);
     })}])
 .controller('movieSearch',['$scope','$state','MovieFactory',function($scope,$state,MovieFactory){
 

@@ -93,16 +93,7 @@
 
 
 
-<div class="general_social_icons">
-	<nav class="social">
-		<ul>
-			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
-			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
-			<li class="w3_dribbble"><a href="#">Dribbble <i class="fa fa-dribbble"></i></a></li>
-			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>				  
-		</ul>
-  </nav>
-</div>
+
 <!-- faq-banner -->
 	<div class="faq">
 		<h4 class="latest-text w3_faq_latest_text w3_latest_text">Last 5 years of bollywood!</h4>
@@ -127,7 +118,7 @@
 								<div class="agile-news-table">
 									<div class="w3ls-news-result">
 										<h4>Top Search Results : <span> {{getMovieByYear.length}}</span></h4>
-										}
+										
 									</div>
 									<table id="table-breakpoint">
 										<thead>
@@ -143,7 +134,7 @@
 										</thead>
 										<tbody ng-repeat="movie in getMovieByYear">
 										  <tr>
-											<td>1</td>
+											<td>{{$index}}</td>
 											<td class="w3-list-img"><a ui-sref="Single({movie: movie.Id})"><img src="{{movie.PosterPath}}" alt="" /> <span>{{movie.Title}}</span></a></td>
 											<td>{{movie.ReleaseYear}}</td>
 											<td>HD</td>

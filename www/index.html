@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
 <!-- //header -->
 <!-- bootstrap-pop-up -->
-  <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+  <div class="modal video-modal fade" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="myModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -137,12 +137,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="form">
                 <h3>Create an account</h3>
-                <form action="#" method="post">
-                  <input type="text" name="Username" placeholder="Username" required="">
-                  <input type="password" name="Password" placeholder="Password" required="">
-                  <input type="email" name="Email" placeholder="Email Address" required="">
-                  <input type="text" name="Phone" placeholder="Phone Number" required="">
-                  <input type="submit" value="Register">
+                <form ng-controller="signupCtrl">
+                  <input type="text" name="Username" placeholder="Username" ng-model="data.username" required="">
+                  <input type="password" name="Password" placeholder="Password" ng-model="data.password" required="">
+                  <input type="email" name="Email" placeholder="Email Address" ng-model="data.email" required="">
+                  <input type="text" name="Phone" placeholder="Phone Number" ng-model="data.phone" required="">
+                  <input type="submit" value="Register" ng-click="signUp()">
                 </form>
                 </div>
                 <div class="cta"><a href="#">Forgot your password?</a></div>
